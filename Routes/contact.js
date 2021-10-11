@@ -23,19 +23,19 @@ router.get("/test", (req, res) => {
  *@data :req.body
  **/
 router.post("/", async (req, res) => {
-    try {
-        const { name, email, phone } = req.body;
-        //handling errors
-        if (!name || !email) {
-            res.status(400).send({ msg: "name or email are required" }, error);
-            return;
-        }
-        //handling errors :email is unique
-        const contact = await Contact.findOne({ email: email });
-        if (contact) {
-            res.status(400).send({ msg: "conatct already exist" });
-        }
+    const { name, email, phone } = req.body;
+    //handling errors
+    if (!name.length || !email.length) {
+        res.status(400).send({ msg: "name or email are required" });
+        return;
+    }
+    //handling errors :email is unique
+    const contact = await Contact.findOne({ email: email });
+    if (contact) {
+        res.status(400).send({ msg: "conatct already exist" });
+    }
 
+    try {
         const newContact = new Contact({
             name,
             email,
@@ -83,7 +83,7 @@ router.get("/", async (req, res) => {
  **/
 router.get("/:id", async (req, res) => {
     try {
-        const oneContact = await Contact.findOne({_id:req.params.id});
+        const oneContact = await Contact.findOne({ _id: req.params.id });
         res.status(200).send({
             msg: "this is the  contact u want",
             oneContact,
@@ -102,39 +102,39 @@ router.get("/:id", async (req, res) => {
  *@method:Delete
  *@data :req.params.id
  **/
-router.delete('/:_id',async(req,res)=>{
+router.delete("/:_id", async (req, res) => {
     try {
-        const {_id}=req.params
-        await Contact.findOneAndDelete({_id})
-        res.status(200).send({msg:'contact deleted'})
-
+        const { _id } = req.params;
+        await Contact.findOneAndDelete({ _id });
+        res.status(200).send({ msg: "contact deleted" });
     } catch (error) {
         res.status(400).send({
             msg: "cannot delete  this contact",
             error,
         });
-        
     }
-})
+});
 
 /**
- *@desc :edit contact 
+ *@desc :edit contact
  *@path :http://localhost:4000/api/contacts/:id
  *@method:put
  *@data :req.params.id & req .body
  **/
-router.put('/:id',async(req,res)=>{
+router.put("/:_id", async (req, res) => {
     try {
-        const {_id}=req.body
-        const result = await Contact.updateOne({id:_id},{$set:{...req.body}})
-        res.status(200).send({msg:'contact updated'})
+        const { _id } = req.params;
+        const result = await Contact.findOneAndUpdate(
+            { _id },
+            { $set: { ...req.body } }
+        );
+        res.status(200).send({ msg: "contact updated" });
     } catch (error) {
         res.status(400).send({
             msg: "cannot edit  this contact",
             error,
         });
-        
     }
-})
+});
 
 module.exports = router;
