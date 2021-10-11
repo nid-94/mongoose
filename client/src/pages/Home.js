@@ -1,5 +1,5 @@
 import React from "react";
-import ContactList from "./../component/ContactList";
+import ContactList from "../component/ContactList";
 
 const Home = () => {
     return (
