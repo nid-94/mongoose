@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Container, Navbar } from "react-bootstrap";
+import { Nav, Container, Navbar, NavDropdown } from "react-bootstrap";
 const Navigation = () => {
     return (
         <header>
@@ -8,7 +8,14 @@ const Navigation = () => {
                     <Navbar.Brand>Welcome to mern Satck Workshop</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#pages">Pages</Nav.Link>
+                        <NavDropdown title="pages" id="navbarScrollingDropdown">
+                            <NavDropdown.Item href="#action3">
+                                ADD
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="#action4">
+                                EDIT
+                            </NavDropdown.Item>
+                        </NavDropdown>
                         <Nav.Link href="#about">About</Nav.Link>
                         <Nav.Link href="#contact">Contact</Nav.Link>
                     </Nav>
