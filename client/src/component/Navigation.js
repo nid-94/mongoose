@@ -5,14 +5,12 @@ const Navigation = () => {
         <header>
             <Navbar bg="info" variant="light">
                 <Container>
-                    <Navbar.Brand href="#home">
-                        Welcome to mern Satck
-                    </Navbar.Brand>
+                    <Navbar.Brand>Welcome to mern Satck Workshop</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Pages</Nav.Link>
-                        <Nav.Link href="#pricing">About</Nav.Link>
-                        <Nav.Link href="#pricing">Contact</Nav.Link>
+                        <Nav.Link href="#pages">Pages</Nav.Link>
+                        <Nav.Link href="#about">About</Nav.Link>
+                        <Nav.Link href="#contact">Contact</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>

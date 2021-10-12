@@ -10,7 +10,7 @@ import Navigation from "./component/Navigation";
 function App() {
     return (
         <div className="App">
-            <h1>mern app workshop</h1>
+            {" "}
             <Navigation />
             <Switch>
                 <Route exact path="/" component={Home} />
