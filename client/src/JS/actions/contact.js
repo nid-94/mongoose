@@ -15,3 +15,20 @@ export const getContacts = () => async (dispatch) => {
         dispatch({ type: FAIL_CONTACTS, payload: error.response });
     }
 };
+export const postContact = (newContact) => async (dispatch) => {
+    try {
+        await axios.post("/api/contacts/", newContact);
+        dispatch(getContacts());
+    } catch (error) {
+        dispatch({ type: FAIL_CONTACTS, payload: error.response });
+    }
+};
+
+export const deleteContact = (id) => async (dispatch) => {
+    try {
+        await axios.delete(`/api/contacts/${id}`);
+        dispatch(getContacts());
+    } catch (error) {
+        dispatch({ type: FAIL_CONTACTS, payload: error.response });
+    }
+};

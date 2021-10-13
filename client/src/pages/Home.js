@@ -1,11 +1,13 @@
 import React from "react";
 import ContactList from "../component/ContactList";
-
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const Home = () => {
     return (
         <div>
-            <h2>contact list</h2>
-
+            <Link to="/add">
+                <Button>ADD</Button>
+            </Link>
             <ContactList />
         </div>
     );
