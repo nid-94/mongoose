@@ -8,6 +8,7 @@ import Error from "./pages/Error";
 import Footer from "./component/Footer";
 import Navigation from "./component/Navigation";
 import { Button } from "react-bootstrap";
+
 function App() {
     return (
         <div className="App">
@@ -18,7 +19,10 @@ function App() {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/add" component={Add} />
-                <Route path="/edit" component={Edit} />
+                <Route
+                    path="/edit/:id"
+                    render={(props) => <Edit {...props} />}
+                />
                 <Route path="/*" component={Error} />
             </Switch>
             <Footer />

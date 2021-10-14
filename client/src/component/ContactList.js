@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getContacts } from "../JS/actions/contact";
-import { Spinner, Card, Container, Row, Col } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import ContactCard from "./ContactCard";
 const ContactList = () => {
     const dispatch = useDispatch();

@@ -1,11 +1,12 @@
+import axios from "axios";
 import {
     GET_CONTACTS,
     LOAD_CONTACTS,
     FAIL_CONTACTS,
 } from "../actionTypes/contact";
 
-import axios from "axios";
-
+// /////////////////CRUD Operations////////////////
+// get
 export const getContacts = () => async (dispatch) => {
     dispatch({ type: LOAD_CONTACTS });
     try {
@@ -15,6 +16,17 @@ export const getContacts = () => async (dispatch) => {
         dispatch({ type: FAIL_CONTACTS, payload: error.response });
     }
 };
+
+//  delete
+export const deleteContact = (id) => async (dispatch) => {
+    try {
+        await axios.delete(`/api/contacts/${id}`);
+        dispatch(getContacts());
+    } catch (error) {
+        dispatch({ type: FAIL_CONTACTS, payload: error.response });
+    }
+};
+//  post
 export const postContact = (newContact) => async (dispatch) => {
     try {
         await axios.post("/api/contacts/", newContact);
@@ -23,10 +35,10 @@ export const postContact = (newContact) => async (dispatch) => {
         dispatch({ type: FAIL_CONTACTS, payload: error.response });
     }
 };
-
-export const deleteContact = (id) => async (dispatch) => {
+//  EDIT
+export const editContact = (id, newContact) => async (dispatch) => {
     try {
-        await axios.delete(`/api/contacts/${id}`);
+        await axios.put(`/api/contacts/${id}`, newContact);
         dispatch(getContacts());
     } catch (error) {
         dispatch({ type: FAIL_CONTACTS, payload: error.response });

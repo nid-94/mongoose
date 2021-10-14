@@ -1,7 +1,8 @@
 import React from "react";
-import { Card, Col, Button } from "react-bootstrap";
+import { Card, Col, Button, ButtonGroup } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "./../JS/actions/contact";
+import { Link } from "react-router-dom";
 const ContactCard = ({ contact }) => {
     const dispatch = useDispatch();
 
@@ -17,10 +18,18 @@ const ContactCard = ({ contact }) => {
                         <Card.Text>{contact.phone}</Card.Text>
                         <Card.Text>{contact.email}</Card.Text>
                     </Card.Body>
-                    <Button
-                        onClick={() => dispatch(deleteContact(contact._id))}>
-                        DELETE
-                    </Button>
+                    <ButtonGroup>
+                        <Link to={`/edit/${contact._id}`}>
+                            <Button>EDIT </Button>
+                        </Link>
+                        <Button
+                            variant="danger"
+                            onClick={() =>
+                                dispatch(deleteContact(contact._id))
+                            }>
+                            DELETE
+                        </Button>
+                    </ButtonGroup>
                 </Card>
                 <br />
             </Col>
