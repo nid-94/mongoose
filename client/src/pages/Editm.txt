@@ -1,0 +1,122 @@
+///////////***correct  */
+// import React, { useEffect, useState } from "react";
+// import { useDispatch } from "react-redux";
+// import { editContact } from "../JS/actions/contact";
+// import { Link } from "react-router-dom";
+// import { Button } from "react-bootstrap";
+
+// const Edit = ({ match }) => {
+//     const dispatch = useDispatch();
+//     // useEffect(() => {
+//     //     const edit = dispatch(editContact(match.params.id, newContact));
+//     // }, [match.params]);
+//     const [newContact, setNewContact] = useState({
+//         name: "",
+//         email: "",
+//         phone: "",
+//     });
+
+//     const handleChange = (e) => {
+//         setNewContact({ ...newContact, [e.target.name]: e.target.value });
+//     };
+//     const edit = () => dispatch(editContact(match.params.id, newContact));
+//     return (
+//         <div>
+//             <h2>edit contact</h2>
+//             <div
+//                 style={{
+//                     display: "flex",
+//                     flexDirection: "column",
+//                     justifyContent: "center",
+//                     flexWrap: "wrap",
+//                     width: "500px",
+//                     paddingLeft: "500px",
+//                 }}>
+//                 <label htmlFor="name">name</label>
+//                 <input
+//                     style={{ width: "400px", textAlign: "center" }}
+//                     type="text"
+//                     name="name"
+//                     value={newContact.name}
+//                     placeholder="enter your name"
+//                     onChange={handleChange}
+//                 />
+//                 <label htmlFor="email">email</label>
+//                 <input
+//                     style={{ width: "400px", textAlign: "center" }}
+//                     type="text"
+//                     name="email"
+//                     value={newContact.email}
+//                     placeholder="enter your email"
+//                     onChange={handleChange}
+//                 />
+//                 <label htmlFor="phone">phone</label>
+//                 <input
+//                     style={{
+//                         width: "400px",
+//                         textAlign: "center",
+//                     }}
+//                     type="text"
+//                     name="phone"
+//                     value={newContact.phone}
+//                     placeholder="enter your phone"
+//                     onChange={handleChange}
+//                 />
+//                 <Link to="/">
+//                     <Button onClick={() => edit()}>edit</Button>
+//                 </Link>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default Edit;
+
+//////////////////////////////////////////////////////
+/////////////****modal */
+// function Edit(props) {
+
+//     return (
+//         // <Modal
+//         //     {...props}
+//         //     size="lg"
+//         //     aria-labelledby="contained-modal-title-vcenter"
+//         //     centered>
+//         //     <Modal.Header closeButton>
+//         //         <Modal.Title id="contained-modal-title-vcenter">
+//         //             Modal heading
+//         //         </Modal.Title>
+//         //     </Modal.Header>
+//         //     <Modal.Body>
+//         //         <h4>Centered Modal</h4>
+//         //         <p>
+//         //             Cras mattis consectetur purus sit amet fermentum. Cras justo
+//         //             odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+//         //             risus, porta ac consectetur ac, vestibulum at eros.
+//         //         </p>
+//         //     </Modal.Body>
+//         //     <Modal.Footer>
+//         //         <Button onClick={props.onHide}>Close</Button>
+//         //     </Modal.Footer>
+//         // </Modal>
+//     );
+// }
+
+// // function Apps() {
+// //     const [modalShow, setModalShow] = React.useState(false);
+
+// //     return (
+// //         <>
+// //             <Button variant="primary" onClick={() => setModalShow(true)}>
+// //                 Launch vertically centered modal
+// //             </Button>
+
+// //             <MyVerticallyCenteredModal
+// //                 show={modalShow}
+// //                 onHide={() => setModalShow(false)}
+// //             />
+// //         </>
+// //     );
+// // }
+
+// // render(<Apps />);

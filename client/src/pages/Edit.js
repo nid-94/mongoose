@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editContact } from "../JS/actions/contact";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 const Edit = ({ match }) => {
     const dispatch = useDispatch();
-    // useEffect(() => dispatch(editContact(match.params.id ,newContact)), [match.params]);
+
     const [newContact, setNewContact] = useState({
         name: "",
         email: "",
         phone: "",
     });
+
     const handleChange = (e) => {
         setNewContact({ ...newContact, [e.target.name]: e.target.value });
     };
-    console.log(newContact);
     const edit = () => dispatch(editContact(match.params.id, newContact));
-    console.log(edit);
-
     return (
         <div>
             <h2>edit contact</h2>

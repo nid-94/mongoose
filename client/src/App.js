@@ -8,8 +8,12 @@ import Error from "./pages/Error";
 import Footer from "./component/Footer";
 import Navigation from "./component/Navigation";
 import { Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 function App() {
+    const listContact = useSelector(
+        (state) => state.contactReducer.listContact
+    );
     return (
         <div className="App">
             <Navigation />
@@ -21,7 +25,9 @@ function App() {
                 <Route path="/add" component={Add} />
                 <Route
                     path="/edit/:id"
-                    render={(props) => <Edit {...props} />}
+                    render={(props) => (
+                        <Edit {...props} contact={listContact} />
+                    )}
                 />
                 <Route path="/*" component={Error} />
             </Switch>
